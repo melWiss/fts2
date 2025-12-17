@@ -1,13 +1,19 @@
-#include <stdio.h>
-#include "lib/btree.c"
+#include "lib/hufftree.c"
 
 int main()
 {
 	BTree *tree = createTree();
 	addNode(tree, createNode("ABC"));
+	addNode(tree, createNode("ABB"));
 	addNode(tree, createNode("AAA"));
 	addNode(tree, createNode("ZAC"));
 	addNode(tree, createNode("BFV"));
+	addNode(tree, createNode("AAA"));
+	addNode(tree, createNode("AAA"));
+	addNode(tree, createNode("AAA"));
+	addNode(tree, createNode("AAA"));
+
+	dumpTree(tree);
 
 	char token[TOKEN_SIZE];
 	scanf("%s", token);

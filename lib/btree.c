@@ -1,6 +1,7 @@
 #include "btree.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 int hash(char token[TOKEN_SIZE])
 {
@@ -141,3 +142,22 @@ Node *readNode(BTree *tree, int value)
         }
     }
 }
+
+void dumpTreeHelper(Node *node, int depth)
+{
+    if (node == NULL)
+        return;
+    for (int i = 0; i < depth; i++)
+        printf("  ");
+    printf("[%d] %s\n", node->value, node->token);
+    dumpTreeHelper(node->left, depth + 1);
+    dumpTreeHelper(node->right, depth + 1);
+}
+
+void dumpTree(BTree *tree)
+{
+    if (tree == NULL || tree->root == NULL)
+        return;
+    dumpTreeHelper(tree->root, 0);
+}
+

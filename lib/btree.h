@@ -20,3 +20,5 @@ void addNode(BTree *tree, Node *node);
 void removeNode(BTree *tree, int value);
 Node *readNode(BTree *tree, int value);
 int hash(char token[TOKEN_SIZE]);
+void dumpTreeHelper(Node *node, int depth);
+void dumpTree(BTree *tree);
